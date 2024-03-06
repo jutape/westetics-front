@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap')
+
+@tailwind base
+@tailwind components
+@tailwind utilities
+
+@mixin scrollbar()
+  &::-webkit-scrollbar
+    width: 6px
+    height: 6px
+
+  &::-webkit-scrollbar-track
+    border-radius: 10px
+    background: rgba(0, 0, 0, 0.1)
+
+  &::-webkit-scrollbar-thumb
+    border-radius: 10px
+    background: rgba(0, 0, 0, 0.2)
+
+    &:hover
+      background: rgba(0, 0, 0, 0.4)
+
+    &:active
+      background: rgba(0, 0, 0, 0.9)
+
+
+body
+  @include scrollbar()

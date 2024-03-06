@@ -1,0 +1,28 @@
+<div class="flex flex-col items-center">
+  <h1 class="mt-10 text-2xl font-bold">Escolha os contratos para preencher:</h1>
+  <ul class="w-1/2 my-5 grid grid-cols-1 divide-y rounded-md overflow-auto">
+    <li *ngFor="let file of files; index as i; first as isFirst"
+      class="py-2 px-3 flex items-center hover:bg-neutral-200 relative"
+      (click)="onClickEvent(file.id)">
+      <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="15" height="15" viewBox="0 0 30 30">
+        <path
+          d="M24.707,8.793l-6.5-6.5C18.019,2.105,17.765,2,17.5,2H7C5.895,2,5,2.895,5,4v22c0,1.105,0.895,2,2,2h16c1.105,0,2-0.895,2-2 V9.5C25,9.235,24.895,8.981,24.707,8.793z M18,21h-8c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1h8c0.552,0,1,0.448,1,1 C19,20.552,18.552,21,18,21z M20,17H10c-0.552,0-1-0.448-1-1c0-0.552,0.448-1,1-1h10c0.552,0,1,0.448,1,1C21,16.552,20.552,17,20,17 z M18,10c-0.552,0-1-0.448-1-1V3.904L23.096,10H18z">
+        </path>
+      </svg>
+      <span class="ml-2">{{file.name}}</span>
+      <span *ngIf="selectedFiles.includes(file.id)"
+        class="text-neutral-800 absolute inset-y-0 right-0 flex items-center pr-4">
+        <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+            clip-rule="evenodd" />
+        </svg>
+      </span>
+    </li>
+  </ul>
+  <button
+    [disabled]="selectedFiles.length < 1"
+    (click)="onSubmitFillDocuments()"
+    class="flex justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:bg-indigo-300">Preencher
+    documento(s)</button>
+</div>
